@@ -30,7 +30,7 @@
     channel.enable = false;
   };
 
-  networking.hostName = "gadafi";
+  networking.hostName = "gaddafi";
 
   users.users.admin = {
     isNormalUser = true;

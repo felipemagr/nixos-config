@@ -1,5 +1,5 @@
 {
-  description = "Gadafi is back";
+  description = "Gaddafi is back";
 
   inputs = {
     # Nixpkgs
@@ -36,7 +36,7 @@
 
     # NixOS configuration entrypoint
     nixosConfigurations = {
-      gadafi = nixpkgs.lib.nixosSystem {
+      gaddafi = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix
@@ -46,8 +46,8 @@
 
     # Standalone home-manager configuration entrypoint.
     homeConfigurations = {
-      # Build with: home-manager switch --flake .#admin@gadafi
-      "admin@gadafi" = home-manager.lib.homeManagerConfiguration {
+      # Build with: home-manager switch --flake .#admin@gaddafi
+      "admin@gaddafi" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
