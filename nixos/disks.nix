@@ -27,7 +27,7 @@
   fileSystems."/boot".options = ["nofail"];
   fileSystems."/boot-fallback".options = ["nofail"];
 
-  systemd.tmpfiles.rules = ["d /mnt/storage 0755 admin users -"];
+  systemd.tmpfiles.rules = ["d /mnt/storage 0755 root root -"];
 
   zramSwap.enable = true;
 }

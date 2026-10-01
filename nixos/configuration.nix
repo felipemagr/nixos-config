@@ -2,6 +2,11 @@
   imports = [
     ./hardware-configuration.nix
     ./disks.nix
+    ./tailscale.nix
+    ./dev.nix
+    ./samba.nix
+    ./containers.nix
+    ./nextcloud.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -18,6 +23,7 @@
 
   users.users.admin = {
     isNormalUser = true;
+    uid = 1000; # containers run as this uid
     initialPassword = "changeme";
     extraGroups = ["wheel"];
     openssh.authorizedKeys.keys = [
