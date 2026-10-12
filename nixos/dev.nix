@@ -13,12 +13,13 @@
     after = ["network-online.target"];
     wants = ["network-online.target"];
     serviceConfig = {
-      Type = "forking";
+      # tmux daemonizes; systemd can't track its PID, so treat startup as one-shot.
+      Type = "oneshot";
+      RemainAfterExit = true;
       User = "dev";
       WorkingDirectory = "/home/dev/code";
       ExecStart = "${pkgs.tmux}/bin/tmux new-session -d -s claude 'bash -lc \"claude remote-control; exec bash -l\"'";
-      Restart = "always";
-      RestartSec = 30;
+      ExecStop = "${pkgs.tmux}/bin/tmux kill-server";
     };
   };
 }
