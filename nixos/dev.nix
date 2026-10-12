@@ -1,5 +1,5 @@
 # Claude Code Remote Control, always on, as an unprivileged user (no sudo, no access to admin's files).
-# First run: `sudo -u dev tmux attach -t claude` to log in.
+# First run: `sudo -u dev tmux attach -t claude`, log in with `claude`, then run `claude remote-control`.
 {pkgs, ...}: {
   users.users.dev = {
     isNormalUser = true;
@@ -16,7 +16,7 @@
       Type = "forking";
       User = "dev";
       WorkingDirectory = "/home/dev/code";
-      ExecStart = "${pkgs.tmux}/bin/tmux new-session -d -s claude 'bash -lc \"claude remote-control\"'";
+      ExecStart = "${pkgs.tmux}/bin/tmux new-session -d -s claude 'bash -lc \"claude remote-control; exec bash -l\"'";
       Restart = "always";
       RestartSec = 30;
     };
