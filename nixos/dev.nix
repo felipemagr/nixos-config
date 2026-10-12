@@ -13,7 +13,6 @@
     after = ["network-online.target"];
     wants = ["network-online.target"];
     serviceConfig = {
-      # tmux daemonizes; systemd can't track its PID, so treat startup as one-shot.
       Type = "oneshot";
       RemainAfterExit = true;
       User = "dev";
