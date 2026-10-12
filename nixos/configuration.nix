@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./disks.nix
     ./tailscale.nix
-    ./dev.nix
     ./samba.nix
     ./containers.nix
     ./nextcloud.nix
