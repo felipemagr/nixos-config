@@ -59,7 +59,7 @@
     jq
     ripgrep
     bat
-    ghostty.terminfo # lets the Mac's Ghostty terminal work over SSH
+    ghostty.terminfo
   ];
   environment.variables.EDITOR = "vim";
 
