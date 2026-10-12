@@ -31,3 +31,8 @@ nixos-rebuild switch --flake .#<host> --target-host <user>@<host> --use-remote-s
 # Update inputs
 nix flake update
 ```
+
+## Roadmap
+
+- [ ] Email alerts for disk health (smartd) and RAID failures (mdadm)
+- [ ] Movie streaming server (Jellyfin or Plex)
