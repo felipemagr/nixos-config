@@ -8,6 +8,7 @@
     database.createLocally = true;
     configureRedis = true;
     maxUploadSize = "4G";
+    settings.trusted_domains = ["gaddafi.tail415afb.ts.net" "100.81.151.1"];
     config = {
       dbtype = "pgsql";
       adminuser = "admin";
