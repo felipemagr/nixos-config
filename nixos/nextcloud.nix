@@ -2,7 +2,7 @@
 {pkgs, ...}: {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud33;
     hostName = "gaddafi";
     datadir = "/mnt/storage/nextcloud";
     database.createLocally = true;
