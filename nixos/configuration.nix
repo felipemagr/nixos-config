@@ -26,7 +26,7 @@
     initialPassword = "changeme";
     extraGroups = ["wheel"];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxZs/Hkl1DB6AhoqfTYnbWyINe6MCRIV3LheIjD3t+I"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKgkEvZ/Jyb31pCIiJ6Dynty+e1IXvStQbk+rjB8eJJ3"
     ];
   };
 
