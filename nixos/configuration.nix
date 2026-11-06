@@ -6,6 +6,7 @@
     ./samba.nix
     ./containers.nix
     ./nextcloud.nix
+    ./selecta.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
