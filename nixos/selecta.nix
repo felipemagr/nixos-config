@@ -1,6 +1,7 @@
 # Selecta, a voice record picker: https://github.com/felipemagr/selecta
 # Secrets (chmod 600): /var/lib/selecta/db.env (POSTGRES_PASSWORD) and selecta.env (see .env.example).
 # HTTPS for the phone, once: tailscale serve --bg --https=443 http://127.0.0.1:8000
+# Runs the latest image: every start pulls it, and the nightly job restarts the app first.
 {pkgs, ...}: {
   virtualisation.oci-containers.containers = {
     selecta-db = {
@@ -17,7 +18,8 @@
     };
 
     selecta = {
-      image = "ghcr.io/felipemagr/selecta@sha256:f7f4981e4acc129874cebf8a01a9b3597c5d9ddb789097e72c4a4b4c70a8ac60";
+      image = "ghcr.io/felipemagr/selecta:latest";
+      pull = "always";
       extraOptions = ["--network=host"];
       dependsOn = ["selecta-db"];
       environmentFiles = ["/var/lib/selecta/selecta.env"];
@@ -34,6 +36,9 @@
 
   systemd.services.selecta-sync = {
     startAt = "04:00";
-    script = "${pkgs.podman}/bin/podman exec selecta selecta sync";
+    script = ''
+      systemctl restart podman-selecta
+      ${pkgs.podman}/bin/podman exec selecta selecta sync
+    '';
   };
 }
