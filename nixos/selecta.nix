@@ -17,7 +17,7 @@
     };
 
     selecta = {
-      image = "ghcr.io/felipemagr/selecta@sha256:26d73ede3c6cc1307a50e9e6c0b7eb177c4e1d0b097239c1901d1d448139e286";
+      image = "ghcr.io/felipemagr/selecta@sha256:f7f4981e4acc129874cebf8a01a9b3597c5d9ddb789097e72c4a4b4c70a8ac60";
       extraOptions = ["--network=host"];
       dependsOn = ["selecta-db"];
       environmentFiles = ["/var/lib/selecta/selecta.env"];
